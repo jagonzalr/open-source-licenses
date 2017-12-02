@@ -1,0 +1,53 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.10
+
+    working_directory: ~/open-source-licenses
+    environment:
+      AWS_BUCKET: opensourcelicences.com
+      AWS_CLOUDFRONT_ID: E9ZFUY4C4C1OE
+      DIST: dist/
+
+    steps:
+      - checkout
+      - run:
+          name: instal python dependenceis
+          command: |
+            sudo apt-get update
+            sudo apt-get install ruby-full
+            sudo apt-get install python-dev --fix-missing
+            sudo apt-get install libfontconfig
+            sudo apt-get -y install python-pip
+            sudo pip install six --upgrade
+            sudo pip install blessed --upgrade
+            sudo pip install awscli --upgrade
+      - restore_cache:
+          keys:
+            - v1.0.0-{{ checksum "package.json" }}
+            - v1.0.0-
+      - run:
+          name: npm install
+          command: |
+            npm install
+            npm install --only=dev
+      - save_cache:
+          key: v1.0.0-{{ checksum "package.json" }}
+          paths:
+            - node_modules/
+      - deploy:
+          name: Deploy to S3 and Cloudfront
+          command: |
+            npm run build
+            aws s3 sync $DIST s3://$AWS_BUCKET/ --delete
+            aws cloudfront create-invalidation --cli-input-json '{"DistributionId":"'"$AWS_CLOUDFRONT_ID"'","InvalidationBatch":{"Paths":{"Quantity":2,"Items":["/index.html","/*"]},"CallerReference": "'$(date "+%s")'"}}'
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
