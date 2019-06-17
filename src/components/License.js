@@ -29,8 +29,12 @@ const License = ({ license, open, onCloseLicense }) => {
   return (
     <div style={styles}>
       <div
-        className='row ops__license-row sticky-top'
-        style={{ backgroundColor: '#ffffff', zIndex: 2 }}
+        className='row sticky-top'
+        style={{
+          backgroundColor: '#ffffff',
+          padding: '10px 5px 20px 5px',
+          zIndex: 2
+        }}
       >
         <div className='col-xs-12 mx-auto'>
           <h4>{license.name}</h4>
@@ -54,12 +58,15 @@ const License = ({ license, open, onCloseLicense }) => {
         </div>
       </div>
 
-      <div className='row ops__license-row'>
+      <div
+        className='row'
+        style={{ padding: '10px 5px 20px 5px' }}
+      >
         {license.hasOwnProperty('key') &&
           <div className='col-xs-12 col-md-6 order-1'>
             <div className='card'>
               <div className='card-header'>
-                <h6 className='card-title ops__main-heading ops__main-underline'>
+                <h6 className='card-title ops__main-underline'>
                   Description
                 </h6>
               </div>
@@ -69,7 +76,7 @@ const License = ({ license, open, onCloseLicense }) => {
             </div>
             <div className='card'>
               <div className='card-header'>
-                <h6 className='card-title ops__main-heading ops__main-underline'>
+                <h6 className='card-title ops__main-underline'>
                   How to add this license
                 </h6>
               </div>
@@ -78,7 +85,8 @@ const License = ({ license, open, onCloseLicense }) => {
               </div>
             </div>
 
-            {license.hasOwnProperty('html_url') && license.html_url.length > 0 &&
+            {license.hasOwnProperty('html_url') &&
+             license.html_url.length > 0 &&
               <div className='card'>
                 <div className='card-body'>
                   <a href={`${license.html_url}`} target='blank'>
@@ -88,10 +96,11 @@ const License = ({ license, open, onCloseLicense }) => {
               </div>
             }
 
-            {license.hasOwnProperty('permissions') && license.permissions.length > 0 &&
+            {license.hasOwnProperty('permissions') &&
+             license.permissions.length > 0 &&
               <div className='card'>
                 <div className='card-header'>
-                  <h6 className='card-title ops__main-heading ops__main-underline green'>
+                  <h6 className='card-title ops__main-underline green'>
                     Permissions
                   </h6>
                 </div>
@@ -105,10 +114,11 @@ const License = ({ license, open, onCloseLicense }) => {
               </div>
             }
 
-            {license.hasOwnProperty('conditions') && license.conditions.length > 0 &&
+            {license.hasOwnProperty('conditions') &&
+             license.conditions.length > 0 &&
               <div className='card'>
                 <div className='card-header'>
-                  <h6 className='card-title ops__main-heading ops__main-underline yellow'>
+                  <h6 className='card-title ops__main-underline yellow'>
                     Conditions
                   </h6>
                 </div>
@@ -122,10 +132,11 @@ const License = ({ license, open, onCloseLicense }) => {
               </div>
             }
 
-            {license.hasOwnProperty('limitations') && license.limitations.length > 0 &&
+            {license.hasOwnProperty('limitations') &&
+             license.limitations.length > 0 &&
               <div className='card'>
                 <div className='card-header'>
-                  <h6 className='card-title ops__main-heading ops__main-underline red'>
+                  <h6 className='card-title ops__main-underline red'>
                     Limitations
                   </h6>
                 </div>

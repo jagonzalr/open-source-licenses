@@ -6,8 +6,14 @@ import React from 'react'
 const Title = () => {
 	return (
 		<div className='row'>
-      <div className='col ops__main-title'>
-        <h2 className='ops__main-heading ops__main-underline'>
+      <div
+      	style={{
+      		margin: '0 auto',
+			    padding: '35px 5px 35px 5px',
+			    textAlign: 'center'
+      	}}
+      >
+        <h2 className='ops__main-underline'>
         	Open Source Licences
         </h2>
       </div>

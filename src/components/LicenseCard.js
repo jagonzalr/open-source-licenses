@@ -7,7 +7,7 @@ const LicenseCard = ({ license, onOpenLicense }) => {
     <div className='col-xs-12 col-sm-6 col-md-4'>
       <div className='card'>
         <div className='card-body'>
-          <h4 className='card-title ops__main-heading'>{license.spdx_id}</h4>
+          <h4 className='card-title'>{license.spdx_id}</h4>
           <p className='card-text'>{license.name}</p>
           <a
             href={license.key}

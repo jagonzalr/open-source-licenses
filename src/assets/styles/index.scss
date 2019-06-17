@@ -18,7 +18,7 @@ $red-color: #E92628;
 html {
     font-size: 1.1rem;
     overflow-x: hidden;
-    letter-spacing: 0.09rem;
+    letter-spacing: 0.12rem;
 }
 
 body {
@@ -34,12 +34,12 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .btn {
-    padding: .375rem 1.25rem;
+    padding: .35rem .95rem;
 }
 
 .btn-outline-primary {
-    border-color: $blue-color;
-    color: $blue-color;
+    border-color: $black-color;
+    color: $black-color;
 
     &:hover, &:active {
         background-color: $blue-color!important;
@@ -62,10 +62,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.no-text-transform {
-  text-transform: none;
-}
-
 .ops__main-underline {
     border-bottom: 3px solid $blue-color;
 }
@@ -83,10 +79,6 @@ h1, h2, h3, h4, h5, h6 {
 .red {
     @extend .ops__main-underline;
     border-bottom: 3px solid $red-color;
-}
-
-.ops__license-row {
-    padding: 10px 5px 20px 5px;
 }
 
 .ops__main-title {
