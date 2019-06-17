@@ -1,6 +1,6 @@
 {
   "name": "open-source-licenses",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Open Source Licenses using Github's Licenses API",
   "main": "index.js",
   "scripts": {
