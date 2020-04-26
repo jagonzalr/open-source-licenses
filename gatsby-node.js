@@ -1,7 +1,8 @@
+require('dotenv').config()
 const path = require('path')
 const axios = require('axios')
 
-const GITHUB_TOKEN = '196792a36cba28536a175b3caeadfa0d02521ac7'
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 const GITHUB_LICENCE_API = 'https://api.github.com/licenses'
 const get = endpoint => axios(endpoint, {
 	method: 'GET',
